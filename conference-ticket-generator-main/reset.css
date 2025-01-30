@@ -1,0 +1,102 @@
+/* Box-sizing and spacing reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove default list styles */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Remove text decoration and inherit color */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Ensure consistent font size and line height */
+html {
+  font-size: 16px;
+  line-height: 1.5;
+  scroll-behavior: smooth;
+}
+
+/* Reset body styles */
+body {
+  font-family: sans-serif;
+  background-color: #fff;
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Reset heading styles */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+/* Reset images and media */
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Button and input reset */
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+/* Remove focus outline except for keyboard users */
+button,
+a,
+input,
+textarea,
+select {
+  outline: none;
+}
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+/* Remove default table spacing */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+/* Reset form elements */
+input,
+textarea {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+}
+
+/* Utility class to hide elements */
+.hidden {
+  display: none !important;
+}

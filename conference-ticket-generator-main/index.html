@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="./reset.css" />
+    <link rel="stylesheet" href="./styles.css" />
+
+    <title>Frontend Mentor | Conference ticket generator</title>
+  </head>
+  <body>
+    <!-- Form starts -->
+
+    <header>
+      <h1>Your Journey to Coding Conf 2025 Starts Here!</h1>
+      <h3>Secure your spot at next year's biggest coding conference.</h3>
+    </header>
+
+    <form>
+      <div>
+        <label for="avatar">Upload Avatar</label>
+        <input
+          type="file"
+          name="avatar"
+          placeholder="Drag and drop or click to upload"
+        />
+        <span>Upload your photo (JPG or PNG, max size: 500KB)</span>
+      </div>
+      <div>
+        <label for="name">Full Name</label>
+        <input type="text" name="name" />
+      </div>
+      <div>
+        <label for="email">Email Address</label>
+        <input type="email" name="email" placeholder="example@gmail.com" />
+      </div>
+      <div>
+        <label for="username">Github Username</label>
+        <input type="text" name="username" placeholder="@yourusername" />
+      </div>
+      <button>Generate My Ticket</button>
+    </form>
+
+    <!-- Form ends -->
+
+    <!-- Generated tickets starts -->
+
+    Congrats,
+    <!-- Full Name -->! Your ticket is ready. We've emailed your ticket to
+    <!-- Email Address -->
+    and will send updates in the run up to the event. Coding Conf Jan 31, 2025 /
+    Austin, TX
+
+    <!-- Generated tickets ends -->
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+      Coded by <a href="#">Your Name Here</a>.
+    </div>
+  </body>
+</html>
