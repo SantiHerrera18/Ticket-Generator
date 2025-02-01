@@ -11,8 +11,8 @@
       sizes="32x32"
       href="./assets/images/favicon-32x32.png"
     />
-    <link rel="stylesheet" href="./reset.css" />
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./styles/reset.css" />
+    <link rel="stylesheet" href="./styles/styles.css" />
 
     <title>Frontend Mentor | Conference ticket generator</title>
   </head>
@@ -25,15 +25,19 @@
     </header>
 
     <form>
-      <div>
-        <label for="avatar">Upload Avatar</label>
+      <label for="avatar">Upload Avatar</label>
+      <div class="dropfile">
         <input
           type="file"
           name="avatar"
           placeholder="Drag and drop or click to upload"
+          class="selectfile"
         />
-        <span>Upload your photo (JPG or PNG, max size: 500KB)</span>
+        <p class="file-name" hidden>This works!</p>
       </div>
+      <span
+        ><small>Upload your photo (JPG or PNG, max size: 500KB)</small></span
+      >
       <div>
         <label for="name">Full Name</label>
         <input type="text" name="name" />
@@ -53,18 +57,21 @@
 
     <!-- Generated tickets starts -->
 
-    Congrats,
-    <!-- Full Name -->! Your ticket is ready. We've emailed your ticket to
-    <!-- Email Address -->
-    and will send updates in the run up to the event. Coding Conf Jan 31, 2025 /
-    Austin, TX
+    <div class="ticket-generated">
+      Congrats,
+      <!-- Full Name -->! Your ticket is ready. We've emailed your ticket to
+      <!-- Email Address -->
+      and will send updates in the run up to the event. Coding Conf Jan 31, 2025
+      / Austin, TX
+    </div>
 
     <!-- Generated tickets ends -->
 
     <div class="attribution">
       Challenge by
       <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
-      Coded by <a href="#">Your Name Here</a>.
+      Coded by <a href="#">Santiago Herrera</a>.
     </div>
   </body>
+  <script src="./scripts/index.js"></script>
 </html>
