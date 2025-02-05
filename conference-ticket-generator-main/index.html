@@ -33,7 +33,18 @@
           placeholder="Drag and drop or click to upload"
           class="selectfile"
         />
-        <p class="file-name" hidden>This works!</p>
+        <img
+          src="./assets/images/icon-upload.svg"
+          alt="upload file"
+          class="upload-icon"
+        />
+        <div class="file-data" hidden>
+          <img src="#" alt="#" class="avatar-img" />
+          <span>
+            <button type="button">Remove Image</button>
+            <button type="button">Change Image</button>
+          </span>
+        </div>
       </div>
       <span
         ><small>Upload your photo (JPG or PNG, max size: 500KB)</small></span
@@ -50,7 +61,7 @@
         <label for="username">Github Username</label>
         <input type="text" name="username" placeholder="@yourusername" />
       </div>
-      <button>Generate My Ticket</button>
+      <button class="submit-button">Generate My Ticket</button>
     </form>
 
     <!-- Form ends -->

@@ -37,7 +37,7 @@ input:focus {
   outline: none;
 }
 
-button {
+.submit-button {
   background-color: var(--Orange-500);
   cursor: pointer;
   width: 100%;
@@ -51,9 +51,8 @@ button {
 /* Dropfiles area */
 .dropfile {
   border: 1px dashed var(--Neutral-500);
-  cursor: pointer;
   width: 100%;
-  height: 80px;
+  height: 140px;
   border-radius: 8px;
   background-color: var(--Neutral-900);
   transition: background-color 0.2s;
@@ -65,4 +64,29 @@ button {
 
 .selectfile {
   display: none;
+}
+
+.avatar-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.file-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  justify-content: center;
+}
+
+.file-data[hidden] {
+  display: none;
+}
+
+.upload-icon {
+  cursor: pointer;
 }

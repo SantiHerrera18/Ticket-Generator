@@ -1,9 +1,10 @@
 const dropFile = document.getElementsByClassName('dropfile')[0]
 const selectFile = document.querySelector('input')
-const fileName = document.getElementsByClassName('file-name')[0]
+const fileDataContainter = document.getElementsByClassName('file-data')[0]
+const uploadFile = document.querySelector('img')
 
 //* Opens the files selector
-dropFile.addEventListener('click', () => {
+uploadFile.addEventListener('click', () => {
     selectFile.click()
 })
 
@@ -20,7 +21,17 @@ dropFile.addEventListener('drop', (e) => {
     console.log(files);
 
     if (files.length > 0) {
-        fileName.hidden = false;
+        uploadFile.style.display = "none";
+        const avatarImg = document.getElementsByClassName('avatar-img')[0];
+        const reader = new FileReader()
+
+        reader.onload = (e) => {
+            avatarImg.src = e.target.result;
+            avatarImg.alt = files[0].name;
+        }
+        reader.readAsDataURL(files[0])
+
+        fileDataContainter.hidden = false;
     }
 })
 
