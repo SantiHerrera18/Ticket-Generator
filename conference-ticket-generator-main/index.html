@@ -26,40 +26,59 @@
 
     <form>
       <label for="avatar">Upload Avatar</label>
+
       <div class="dropfile">
         <input
           type="file"
           name="avatar"
-          placeholder="Drag and drop or click to upload"
           class="selectfile"
+          accept=".jpg, .png"
         />
         <img
           src="./assets/images/icon-upload.svg"
           alt="upload file"
           class="upload-icon"
         />
+        <p class="upload-description">Drag and drop or click to upload</p>
         <div class="file-data" hidden>
           <img src="#" alt="#" class="avatar-img" />
           <span>
-            <button type="button">Remove Image</button>
-            <button type="button">Change Image</button>
+            <button class="edit-img" id="remove" type="button">
+              Remove Image
+            </button>
+            <button class="edit-img" id="change" type="button">
+              Change Image
+            </button>
           </span>
         </div>
       </div>
       <span
-        ><small>Upload your photo (JPG or PNG, max size: 500KB)</small></span
+        ><small class="file-message"
+          >Upload your photo (JPG or PNG, max size: 500KB)</small
+        ></span
       >
+
       <div>
         <label for="name">Full Name</label>
-        <input type="text" name="name" />
+        <input type="text" name="name" id="name" />
       </div>
       <div>
         <label for="email">Email Address</label>
-        <input type="email" name="email" placeholder="example@gmail.com" />
+        <input
+          type="email"
+          name="email"
+          placeholder="example@gmail.com"
+          id="email"
+        />
       </div>
       <div>
         <label for="username">Github Username</label>
-        <input type="text" name="username" placeholder="@yourusername" />
+        <input
+          type="text"
+          name="username"
+          placeholder="@yourusername"
+          id="github"
+        />
       </div>
       <button class="submit-button">Generate My Ticket</button>
     </form>

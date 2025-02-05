@@ -63,24 +63,6 @@ select {
   font: inherit;
   background: none;
   border: none;
-  outline: none;
-}
-
-/* Remove focus outline except for keyboard users */
-button,
-a,
-input,
-textarea,
-select {
-  outline: none;
-}
-button:focus-visible,
-a:focus-visible,
-input:focus-visible,
-textarea:focus-visible,
-select:focus-visible {
-  outline: 2px solid #007bff;
-  outline-offset: 2px;
 }
 
 /* Remove default table spacing */

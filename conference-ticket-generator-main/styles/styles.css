@@ -10,6 +10,14 @@
   --Gradient-text: hsl(7, 86%, 67%) to hsl(0, 0%, 100%);
 }
 
+@font-face {
+  font-family: "Inconsolata";
+  src: url("../assets/fonts/Inconsolata-VariableFont_wdth\,wght.ttf")
+    format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -18,6 +26,48 @@ body {
   padding: 10px;
   background-image: url("../assets/images/background-desktop.png");
   background-position: center;
+  color: var(--Neutral-300);
+  font-family: "Inconsolata";
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  color: var(--Neutral-0);
+  font-weight: 900;
+  font-size: 46px;
+  display: inline-block;
+  width: 70%;
+  margin: auto;
+  text-align: center;
+}
+
+h3 {
+  font-weight: 300;
+  display: inline-block;
+  width: 70%;
+  text-align: center;
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+form {
+  margin: 20px 0;
+  width: 25%;
+}
+
+small {
+  font-size: 12px;
+  display: inline-block;
+}
+
+label {
+  font-weight: 500;
+  font-size: 20px;
 }
 
 /* Styles for form and inputs */
@@ -28,20 +78,20 @@ form div:not(.dropfile) {
 }
 
 form input:not(:nth-child(1)) {
-  padding: 2px;
+  padding: 8px;
   border: 1px solid var(--Neutral-500);
   border-radius: 8px;
-}
-
-input:focus {
-  outline: none;
+  color: var(--Neutral-300);
 }
 
 .submit-button {
   background-color: var(--Orange-500);
   cursor: pointer;
   width: 100%;
-  padding: 4px 8px;
+  padding: 8px 8px;
+  border-radius: 8px;
+  font-weight: bold;
+  margin-top: 10px;
 }
 
 .ticket-generated {
@@ -52,14 +102,15 @@ input:focus {
 .dropfile {
   border: 1px dashed var(--Neutral-500);
   width: 100%;
-  height: 140px;
+  height: 120px;
   border-radius: 8px;
   background-color: var(--Neutral-900);
   transition: background-color 0.2s;
-}
-
-.dropfile:hover {
-  background-color: var(--Neutral-700);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 .selectfile {
@@ -72,6 +123,7 @@ input:focus {
   border-radius: 10px;
   object-fit: cover;
   object-position: center;
+  border: 1px solid var(--Neutral-300);
 }
 
 .file-data {
@@ -89,4 +141,26 @@ input:focus {
 
 .upload-icon {
   cursor: pointer;
+  border-radius: 8px;
+  padding: 4px;
+  background-color: var(--Neutral-700);
+}
+
+.edit-img {
+  font-size: 12px;
+  color: var(--Neutral-300);
+  background-color: var(--Neutral-700);
+  padding: 2px 4px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.file-error {
+  color: var(--Orange-700);
+}
+
+input:focus,
+.dropfile:focus {
+  outline: 2px solid var(--Neutral-500);
+  outline-offset: 2px;
 }
