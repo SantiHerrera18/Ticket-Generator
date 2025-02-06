@@ -33,12 +33,15 @@
           name="avatar"
           class="selectfile"
           accept=".jpg, .png"
+          required
         />
-        <img
-          src="./assets/images/icon-upload.svg"
-          alt="upload file"
-          class="upload-icon"
-        />
+        <button>
+          <img
+            src="./assets/images/icon-upload.svg"
+            alt="upload file"
+            class="upload-icon"
+          />
+        </button>
         <p class="upload-description">Drag and drop or click to upload</p>
         <div class="file-data" hidden>
           <img src="#" alt="#" class="avatar-img" />
@@ -60,7 +63,8 @@
 
       <div>
         <label for="name">Full Name</label>
-        <input type="text" name="name" id="name" />
+        <input type="text" name="name" id="name" required />
+        <span class="input-error" hidden>Input error</span>
       </div>
       <div>
         <label for="email">Email Address</label>
@@ -69,16 +73,20 @@
           name="email"
           placeholder="example@gmail.com"
           id="email"
+          required
         />
+        <span class="input-error" hidden>Input error</span>
       </div>
       <div>
-        <label for="username">Github Username</label>
+        <label for="github">Github Username</label>
         <input
           type="text"
           name="username"
           placeholder="@yourusername"
           id="github"
+          required
         />
+        <span class="input-error" hidden>Input error</span>
       </div>
       <button class="submit-button">Generate My Ticket</button>
     </form>

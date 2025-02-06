@@ -1,7 +1,7 @@
 const dropFile = document.getElementsByClassName('dropfile')[0]
 const selectFile = document.querySelector('input')
 const fileDataContainter = document.getElementsByClassName('file-data')[0]
-const uploadFile = document.querySelector('img')
+const uploadFile = document.querySelector('button')
 const uploadDescription = document.getElementsByClassName('upload-description')[0]
 const fileMessage = document.getElementsByClassName('file-message')[0]
 const innerValue = fileMessage.innerHTML
@@ -55,7 +55,6 @@ uploadFile.addEventListener('click', () => {
 
 selectFile.addEventListener('change', (e) => {
     const files = e.target.files;
-    console.log(files);
     if (files.length > 0) processFile(files)
 
 })
@@ -64,7 +63,6 @@ selectFile.addEventListener('change', (e) => {
 dropFile.addEventListener('drop', (e) => {
     e.preventDefault()
     const files = e.dataTransfer.files;
-    console.log(files);
 
     if (files.length > 0) processFile(files)
 
@@ -93,22 +91,73 @@ changeImg.addEventListener('click', () => {
 })
 
 
+//* Handle inputs value
+const userName = document.getElementById('name');
+const email = document.getElementById('email');
+const github = document.getElementById('github');
+const inputs = [userName, email, github];
+
+function isValidEmail(email) {
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailRegex.test(email);
+}
+
+function isAlphanumeric(input) {
+    const alphanumericRegex = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z0-9_-]+$/; // Allow underscores and hyphens in usernames
+    return alphanumericRegex.test(input);
+}
+
+inputs.forEach(input => {
+    input.addEventListener('change', (e) => {
+        const inputError = input.nextElementSibling;
+        const inputValue = e.target.value;
+
+        if (inputValue.length < 4) {
+            inputError.style.opacity = "1";
+            inputError.textContent = "Must be longer than 4 characters";
+            input.style.border = "1px solid #e16151"
+        } else {
+            inputError.style.opacity = "0";
+            input.style.border = "1px solid #8784a4"
+
+
+            if (input.name === 'email') {
+                const testResult = isValidEmail(inputValue);
+                if (!testResult) {
+                    inputError.style.opacity = "1";
+                    inputError.textContent = "Must be a valid email";
+                    input.style.border = "1px solid #e16151"
+                }
+            } else if (input.name === 'username') {
+                const testResult = isAlphanumeric(inputValue);
+                if (!testResult) {
+                    inputError.style.opacity = "1";
+                    inputError.textContent = "Must contain alphanumeric symbols";
+                    input.style.border = "1px solid #e16151"
+                }
+            }
+        }
+    });
+});
+
+
 //* Handle Form data 
 const form = document.querySelector('form');
 
 form.addEventListener('submit', (e) => {
     e.preventDefault()
-    const name = document.getElementById('name');
-    const email = document.getElementById('email');
-    const github = document.getElementById('github');
 
     const formData = {
         file: fileImg,
-        name: name.value,
+        name: userName.value,
         email: email.value,
         github: github.value
     }
 
-    console.log(formData);
+    inputs.forEach(input => input.value = "")
+    fileDataContainter.hidden = true;
+    uploadFile.style.display = 'block'
+    uploadDescription.style.display = "block"
+    fileImg = {}
 
 })

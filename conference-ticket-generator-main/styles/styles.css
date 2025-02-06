@@ -23,9 +23,15 @@ body {
   flex-direction: column;
   width: 100%;
   align-items: center;
-  padding: 10px;
-  background-image: url("../assets/images/background-desktop.png");
-  background-position: center;
+  padding: 40px 16px;
+  background-image: url("../assets/images/pattern-lines.svg"),
+    url("../assets/images/pattern-squiggly-line-bottom-desktop.svg"),
+    url("../assets/images/pattern-squiggly-line-top.svg"),
+    url("../assets/images/background-desktop.png");
+
+  background-position: top, bottom left, top right, center;
+  background-size: cover, 50%, 40%, cover;
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
   color: var(--Neutral-300);
   font-family: "Inconsolata";
 }
@@ -57,12 +63,17 @@ h3 {
 
 form {
   margin: 20px 0;
-  width: 25%;
+  width: 28%;
 }
 
 small {
   font-size: 12px;
   display: inline-block;
+}
+
+a {
+  font-weight: bolder;
+  color: var(--Neutral-0);
 }
 
 label {
@@ -77,11 +88,17 @@ form div:not(.dropfile) {
   margin: 10px 0;
 }
 
-form input:not(:nth-child(1)) {
+form input {
   padding: 8px;
   border: 1px solid var(--Neutral-500);
   border-radius: 8px;
   color: var(--Neutral-300);
+  background-color: var(--Neutral-900);
+  transition: background-color 0.1s;
+}
+
+input:hover {
+  background-color: var(--Neutral-700);
 }
 
 .submit-button {
@@ -111,6 +128,17 @@ form input:not(:nth-child(1)) {
   align-items: center;
   justify-content: center;
   gap: 8px;
+}
+
+.dropfile:hover {
+  background-color: var(--Neutral-700);
+  transition: background-color 0.1s;
+  cursor: pointer;
+}
+
+.dropfile:hover .upload-icon {
+  box-shadow: 0 0 2px #000a;
+  border: 1px solid var(--Neutral-500);
 }
 
 .selectfile {
@@ -163,4 +191,11 @@ input:focus,
 .dropfile:focus {
   outline: 2px solid var(--Neutral-500);
   outline-offset: 2px;
+}
+
+span[hidden] {
+  display: block;
+  opacity: 0;
+  color: var(--Orange-700);
+  font-size: 14px;
 }
