@@ -19,88 +19,92 @@
   <body>
     <!-- Form starts -->
 
-    <header>
-      <h1>Your Journey to Coding Conf 2025 Starts Here!</h1>
-      <h3>Secure your spot at next year's biggest coding conference.</h3>
-    </header>
+    <section class="register-form">
+      <header>
+        <h1>Your Journey to Coding Conf 2025 Starts Here!</h1>
+        <h3>Secure your spot at next year's biggest coding conference.</h3>
+      </header>
 
-    <form>
-      <label for="avatar">Upload Avatar</label>
+      <form>
+        <label for="avatar">Upload Avatar</label>
 
-      <div class="dropfile">
-        <input
-          type="file"
-          name="avatar"
-          class="selectfile"
-          accept=".jpg, .png"
-          required
-        />
-        <button>
-          <img
-            src="./assets/images/icon-upload.svg"
-            alt="upload file"
-            class="upload-icon"
+        <div class="dropfile">
+          <input
+            type="file"
+            name="avatar"
+            id="avatar"
+            class="selectfile"
+            accept=".jpg, .png"
           />
-        </button>
-        <p class="upload-description">Drag and drop or click to upload</p>
-        <div class="file-data" hidden>
-          <img src="#" alt="#" class="avatar-img" />
-          <span>
-            <button class="edit-img" id="remove" type="button">
-              Remove Image
-            </button>
-            <button class="edit-img" id="change" type="button">
-              Change Image
-            </button>
-          </span>
+          <button type="button">
+            <img
+              src="./assets/images/icon-upload.svg"
+              alt="upload file"
+              class="upload-icon"
+            />
+          </button>
+          <p class="upload-description">Drag and drop or click to upload</p>
+          <div class="file-data" hidden>
+            <img src="#" alt="#" class="avatar-img" />
+            <span>
+              <button class="edit-img" id="remove" type="button">
+                Remove Image
+              </button>
+              <button class="edit-img" id="change" type="button">
+                Change Image
+              </button>
+            </span>
+          </div>
         </div>
-      </div>
-      <span
-        ><small class="file-message"
-          >Upload your photo (JPG or PNG, max size: 500KB)</small
-        ></span
-      >
+        <span
+          ><small class="file-message"
+            >Upload your photo (JPG or PNG, max size: 500KB)</small
+          ></span
+        >
 
-      <div>
-        <label for="name">Full Name</label>
-        <input type="text" name="name" id="name" required />
-        <span class="input-error" hidden>Input error</span>
-      </div>
-      <div>
-        <label for="email">Email Address</label>
-        <input
-          type="email"
-          name="email"
-          placeholder="example@gmail.com"
-          id="email"
-          required
-        />
-        <span class="input-error" hidden>Input error</span>
-      </div>
-      <div>
-        <label for="github">Github Username</label>
-        <input
-          type="text"
-          name="username"
-          placeholder="@yourusername"
-          id="github"
-          required
-        />
-        <span class="input-error" hidden>Input error</span>
-      </div>
-      <button class="submit-button">Generate My Ticket</button>
-    </form>
+        <div>
+          <label for="name">Full Name</label>
+          <input type="text" name="name" id="name" />
+          <span class="input-error" hidden>Input error</span>
+        </div>
+        <div>
+          <label for="email">Email Address</label>
+          <input
+            type="email"
+            name="email"
+            placeholder="example@gmail.com"
+            id="email"
+          />
+          <span class="input-error" hidden>Input error</span>
+        </div>
+        <div>
+          <label for="github">Github Username</label>
+          <input
+            type="text"
+            name="username"
+            placeholder="@yourusername"
+            id="github"
+          />
+          <span class="input-error" hidden>Input error</span>
+        </div>
+        <button class="submit-button" disabled>Generate My Ticket</button>
+      </form>
+    </section>
 
     <!-- Form ends -->
 
     <!-- Generated tickets starts -->
 
     <div class="ticket-generated">
-      Congrats,
-      <!-- Full Name -->! Your ticket is ready. We've emailed your ticket to
-      <!-- Email Address -->
+      <h2>Congrats,<span id="fullname"></span>! Your ticket is ready.</h2>
+      We've emailed your ticket to
+      <span id="user-email"></span>
       and will send updates in the run up to the event. Coding Conf Jan 31, 2025
       / Austin, TX
+      <div class="ticket-img">
+        <h2>Coding conf</h2>
+        <img src="#" alt="#" class="avatar-img" />
+      </div>
     </div>
 
     <!-- Generated tickets ends -->

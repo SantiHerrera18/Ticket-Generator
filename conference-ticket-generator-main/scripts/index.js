@@ -5,8 +5,13 @@ const uploadFile = document.querySelector('button')
 const uploadDescription = document.getElementsByClassName('upload-description')[0]
 const fileMessage = document.getElementsByClassName('file-message')[0]
 const innerValue = fileMessage.innerHTML
-let fileImg = {}
+const submitButton = document.getElementsByClassName('submit-button')[0]
+const formSection = document.getElementsByClassName('register-form')[0]
 
+
+
+let fileImg = {}
+let srcAvatarImg = ""
 
 //* Check the type and file size
 const checkFile = (file) => {
@@ -33,17 +38,25 @@ const processFile = (files) => {
     if (verified) {
         uploadFile.style.display = "none";
         uploadDescription.style.display = "none"
-        const avatarImg = document.getElementsByClassName('avatar-img')[0];
+        const avatarImg = document.querySelectorAll('.avatar-img');
+
+        console.log(avatarImg);
+
         const reader = new FileReader()
 
         reader.onload = (e) => {
-            avatarImg.src = e.target.result;
-            avatarImg.alt = files[0].name;
+            avatarImg.forEach(img => {
+                img.src = e.target.result;
+                img.alt = files[0].name;
+            })
+
         }
         reader.readAsDataURL(files[0])
 
         fileDataContainter.hidden = false;
         fileImg = files[0]
+        if (!errors.length) submitButton.disabled = false
+
     } else return false
 
 }
@@ -107,8 +120,11 @@ function isAlphanumeric(input) {
     return alphanumericRegex.test(input);
 }
 
+const errors = [1, 2, 3] // Used for form validation 
+
 inputs.forEach(input => {
     input.addEventListener('change', (e) => {
+
         const inputError = input.nextElementSibling;
         const inputValue = e.target.value;
 
@@ -116,6 +132,8 @@ inputs.forEach(input => {
             inputError.style.opacity = "1";
             inputError.textContent = "Must be longer than 4 characters";
             input.style.border = "1px solid #e16151"
+            return
+
         } else {
             inputError.style.opacity = "0";
             input.style.border = "1px solid #8784a4"
@@ -127,6 +145,7 @@ inputs.forEach(input => {
                     inputError.style.opacity = "1";
                     inputError.textContent = "Must be a valid email";
                     input.style.border = "1px solid #e16151"
+                    return
                 }
             } else if (input.name === 'username') {
                 const testResult = isAlphanumeric(inputValue);
@@ -134,9 +153,13 @@ inputs.forEach(input => {
                     inputError.style.opacity = "1";
                     inputError.textContent = "Must contain alphanumeric symbols";
                     input.style.border = "1px solid #e16151"
+                    return
                 }
             }
         }
+        errors.pop()
+        if (!errors.length && fileImg.name.length) submitButton.disabled = false
+
     });
 });
 
@@ -144,20 +167,38 @@ inputs.forEach(input => {
 //* Handle Form data 
 const form = document.querySelector('form');
 
+
 form.addEventListener('submit', (e) => {
     e.preventDefault()
 
     const formData = {
+        id: `#000${Math.floor(Math.random() * 10)}`,
         file: fileImg,
         name: userName.value,
         email: email.value,
         github: github.value
     }
 
+    //Clean all inputs
     inputs.forEach(input => input.value = "")
     fileDataContainter.hidden = true;
     uploadFile.style.display = 'block'
     uploadDescription.style.display = "block"
     fileImg = {}
+    submitButton.disabled = true
+
+    //Generate the ticket
+    form.style.display = "none"
+    const header = document.getElementsByTagName('header')[0]
+    header.style.display = "none"
+    const ticketCreated = document.getElementsByClassName('ticket-generated')[0]
+    ticketCreated.classList.add('ticket-ready')
+
+    const fullName = document.getElementById("fullname")
+    const userEmail = document.getElementById("user-email")
+    fullName.textContent = formData.name
+    userEmail.textContent = formData.email
+    console.log(formData.id);
+
 
 })
